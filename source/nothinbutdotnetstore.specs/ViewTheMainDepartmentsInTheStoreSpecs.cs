@@ -29,7 +29,7 @@ namespace nothinbutdotnetstore.specs
 
       It should_invoke_the_data_store = () =>
       {
-          datastore.received(x => x.GetData(request));
+          datastore.received(x => x.GetData(sut));
       };
 
 
@@ -40,6 +40,6 @@ namespace nothinbutdotnetstore.specs
 
     interface IDataStore
     {
-        IEnumerable<string> GetData(IContainRequestInformation info);
+        IEnumerable<string> GetData(IProcessApplicationSpecificBehaviour info);
     }
 }

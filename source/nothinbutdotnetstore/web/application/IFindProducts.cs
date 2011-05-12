@@ -5,6 +5,5 @@ namespace nothinbutdotnetstore.web.application
 {
     public interface IFindProducts
     {
-        IEnumerable<ProductItem> get_products_in(DepartmentItem testdepartment);
     }
 }

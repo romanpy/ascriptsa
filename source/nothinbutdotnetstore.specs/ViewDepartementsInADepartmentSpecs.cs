@@ -24,12 +24,12 @@ namespace nothinbutdotnetstore.specs
                 request = fake.an<IContainRequestInformation>();
                 var testdepartment = new DepartmentItem();
 
-                department_repository = depends.on<IFindDepartments>();
+                information_in_the_store_catalog_repository = depends.on<IFindInformationInTheStoreCatalog>();
                 the_sub_departments = new List<DepartmentItem> {new DepartmentItem()};
                 report_engine = depends.on<IDisplayReportModels>();
 
                 request.setup(x => x.map<DepartmentItem>()).Return(testdepartment);
-                department_repository.setup(x => x.get_departments_in(testdepartment)).Return(the_sub_departments);
+                information_in_the_store_catalog_repository.setup(x => x.get_departments_in(testdepartment)).Return(the_sub_departments);
               };
 
               Because b = () =>
@@ -42,7 +42,7 @@ namespace nothinbutdotnetstore.specs
 
 
               static IContainRequestInformation request;
-              static IFindDepartments department_repository;
+              static IFindInformationInTheStoreCatalog information_in_the_store_catalog_repository;
               static IDisplayReportModels report_engine;
               static IEnumerable<DepartmentItem> the_sub_departments;
             }                

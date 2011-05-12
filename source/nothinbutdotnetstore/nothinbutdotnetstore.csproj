@@ -83,9 +83,9 @@
     <Compile Include="web\application\catalogbrowsing\ViewProductsInADepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheDepartmentsInADepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartmentsInTheStore.cs" />
-    <Compile Include="web\application\IFindDepartments.cs" />
+    <Compile Include="web\application\IFindInformationInTheStoreCatalog.cs" />
     <Compile Include="web\application\IFindProducts.cs" />
-    <Compile Include="web\application\stubs\StubDepartmentsRepository.cs" />
+    <Compile Include="web\application\stubs\StubInformationInTheStoreCatalogRepository.cs" />
     <Compile Include="web\core\BasicRequestHandler.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\FrontController.cs" />

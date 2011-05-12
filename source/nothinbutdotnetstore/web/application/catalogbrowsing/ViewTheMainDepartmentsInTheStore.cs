@@ -6,24 +6,24 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
 {
   public class ViewTheMainDepartmentsInTheStore : IProcessApplicationSpecificBehaviour
   {
-    IFindDepartments department_repository;
+    IFindInformationInTheStoreCatalog information_in_the_store_catalog_repository;
     IDisplayReportModels reporting_engine;
 
-    public ViewTheMainDepartmentsInTheStore() : this(new StubDepartmentsRepository(),
+    public ViewTheMainDepartmentsInTheStore() : this(new StubInformationInTheStoreCatalogRepository(),
                                                      new StubReportEngine())
     {
     }
 
-    public ViewTheMainDepartmentsInTheStore(IFindDepartments department_repository,
+    public ViewTheMainDepartmentsInTheStore(IFindInformationInTheStoreCatalog information_in_the_store_catalog_repository,
                                             IDisplayReportModels reporting_engine)
     {
-      this.department_repository = department_repository;
+      this.information_in_the_store_catalog_repository = information_in_the_store_catalog_repository;
       this.reporting_engine = reporting_engine;
     }
 
     public void run(IContainRequestInformation request)
     {
-      reporting_engine.display(department_repository.get_the_main_departments_in_the_store());
+      reporting_engine.display(information_in_the_store_catalog_repository.get_the_main_departments_in_the_store());
     }
   }
 }

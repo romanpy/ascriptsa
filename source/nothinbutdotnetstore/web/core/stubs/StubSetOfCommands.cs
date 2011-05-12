@@ -8,7 +8,7 @@ namespace nothinbutdotnetstore.web.core.stubs
   {
     public IEnumerator<IProcessOneUniqueRequest> GetEnumerator()
     {
-      yield return new ProcessOneUniqueRequest(x => true, new ViewTheDepartmentsInADepartment());
+      yield return new ProcessOneUniqueRequest(x => true, new ViewProductsInADepartment());
     }
 
     IEnumerator IEnumerable.GetEnumerator()

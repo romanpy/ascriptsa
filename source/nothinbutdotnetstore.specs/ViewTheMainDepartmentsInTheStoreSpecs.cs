@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
 using Machine.Specifications;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
@@ -17,16 +19,27 @@ namespace nothinbutdotnetstore.specs
     {
       Establish c = () =>
       {
-        request = fake.an<IContainRequestInformation>();
+         datastore = depends.on<IDataStore>();
+         request = fake.an<IContainRequestInformation>();
       };
 
       Because b = () =>
         sut.run(request);
 
 
-      It should_blah = () => { };
+      It should_invoke_the_data_store = () =>
+      {
+          datastore.received(x => x.GetData(request));
+      };
 
-      static IContainRequestInformation request;
+
+        static IContainRequestInformation request;
+        static IDataStore datastore;
     }
   }
+
+    interface IDataStore
+    {
+        IEnumerable<string> GetData(IContainRequestInformation info);
+    }
 }

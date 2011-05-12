@@ -17,7 +17,11 @@ namespace nothinbutdotnetstore.specs
     {
       public class and_it_can_proces_it : when_determining_if_it_can_process_a_request
       {
-        Establish c = () => { request = fake.an<IContainRequestInformation>(); };
+        Establish c = () => { 
+            request = fake.an<IContainRequestInformation>();
+            request.Identity = 1;
+        };
+
 
         Because b = () =>
           result = sut.can_handle(request);
@@ -31,7 +35,9 @@ namespace nothinbutdotnetstore.specs
 
       public class and_it_cannot_process_it : when_determining_if_it_can_process_a_request
       {
-        Establish c = () => { request = fake.an<IContainRequestInformation>(); };
+        Establish c = () => { request = fake.an<IContainRequestInformation>();
+        request.Identity = 0;
+        };
 
         Because b = () =>
           result = sut.can_handle(request);

@@ -19,11 +19,13 @@ namespace nothinbutdotnetstore.specs
     {
       Establish c = () =>
       {
+         view = depends.on<IView>();
+         datapackage = fake.an<IEnumerable<string>>();
          datastore = depends.on<IDataStore>();
          request = fake.an<IContainRequestInformation>();
       };
 
-      Because b = () =>
+        Because b = () =>
         sut.run(request);
 
 
@@ -32,9 +34,16 @@ namespace nothinbutdotnetstore.specs
           datastore.received(x => x.GetData(sut));
       };
 
+    It should_invoke_view = () =>
+    {
+        view.received(x => x.ShowData(datapackage));
+    };
+
 
         static IContainRequestInformation request;
         static IDataStore datastore;
+        static IEnumerable<string> datapackage;
+        static IView view;
     }
   }
 
@@ -42,4 +51,10 @@ namespace nothinbutdotnetstore.specs
     {
         IEnumerable<string> GetData(IProcessApplicationSpecificBehaviour info);
     }
+
+    interface IView
+    {
+        void ShowData(IEnumerable<string> data) ;
+    }
+
 }

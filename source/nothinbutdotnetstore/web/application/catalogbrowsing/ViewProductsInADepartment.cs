@@ -10,8 +10,8 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
     IFindInformationInTheStoreCatalog information_in_the_store_catalog_repository;
 
     public ViewProductsInADepartment()
-        : this(StubFactory.CreateStub<StubReportEngine>(),
-                                              StubFactory.CreateStub<StubInformationInTheStoreCatalogRepository>())
+        : this(Stub.with<StubReportEngine>(),
+                                              Stub.with<StubInformationInTheStoreCatalogRepository>())
     {
     }
 

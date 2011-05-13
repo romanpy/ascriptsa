@@ -9,7 +9,7 @@ namespace nothinbutdotnetstore.web.core
     ICreateRequests request_factory;
 
     public BasicRequestHandler() : this(new FrontController(),
-                                        new StubRequestFactory())
+                                        Stub.with<StubRequestFactory>())
     {
     }
 

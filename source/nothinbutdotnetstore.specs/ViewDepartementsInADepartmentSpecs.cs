@@ -19,7 +19,7 @@ namespace nothinbutdotnetstore.specs
         [Subject(typeof(ViewTheDepartmentsInADepartment))]
         public class when_run : concern
         {
-              Establish c = () =>
+          Establish c = () =>
               {
                 request = fake.an<IContainRequestInformation>();
                 var testdepartment = new DepartmentItem();
@@ -32,17 +32,16 @@ namespace nothinbutdotnetstore.specs
                 information_in_the_store_catalog_repository.setup(x => x.get_departments_in(testdepartment)).Return(the_sub_departments);
               };
 
-              Because b = () =>
+          It should_display_the_departments_in_the_department =
+            () =>
+              report_engine.received(x => x.display(the_sub_departments));
+
+          Because b = () =>
                 sut.run(request);
 
+          static IContainRequestInformation request;
 
-              It should_display_the_departments_in_the_department =
-                () =>
-                  report_engine.received(x => x.display(the_sub_departments));
-
-
-              static IContainRequestInformation request;
-              static IFindInformationInTheStoreCatalog information_in_the_store_catalog_repository;
+          static IFindInformationInTheStoreCatalog information_in_the_store_catalog_repository;
               static IDisplayReportModels report_engine;
               static IEnumerable<DepartmentItem> the_sub_departments;
             }                

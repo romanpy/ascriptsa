@@ -88,7 +88,9 @@
     <Compile Include="web\application\stubs\StubInformationInTheStoreCatalogRepository.cs" />
     <Compile Include="web\core\BasicRequestHandler.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
+    <Compile Include="web\core\ControllerDispatchingMediator.cs" />
     <Compile Include="web\core\FrontController.cs" />
+    <Compile Include="web\core\ICanFindAControllerToProcessARequest .cs" />
     <Compile Include="web\core\IContainRequestInformation .cs" />
     <Compile Include="web\core\ICreateRequests.cs" />
     <Compile Include="web\core\IDisplayData.cs" />
